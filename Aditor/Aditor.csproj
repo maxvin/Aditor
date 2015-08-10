@@ -108,6 +108,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -181,26 +182,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\OffersController.cs" />
+    <Compile Include="Models\Original\Advertisers.cs" />
+    <Compile Include="Models\Original\Affiliates.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Models\Original\Campaignes.cs" />
+    <Compile Include="Models\Original\CampaignRuleMapping.cs" />
+    <Compile Include="Models\Original\Categories.cs" />
+    <Compile Include="Models\Original\Clicks.cs" />
+    <Compile Include="Models\Original\ClicksSummary.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdUnitController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Models\Original\Conversions.cs" />
+    <Compile Include="Models\Original\Countries.cs" />
+    <Compile Include="Models\Original\CountriesDB.cs" />
+    <Compile Include="Models\Original\Deals.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Original\IPCountry.cs" />
+    <Compile Include="Models\Original\leads.cs" />
+    <Compile Include="Infra\AditorDb.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdUnitInfo.cs" />
     <Compile Include="Models\BannerInfo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Original\Offers.cs" />
+    <Compile Include="postbacks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\Original\Rules.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Models\Original\Tags.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -258,6 +278,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Offers\Create.cshtml" />
+    <Content Include="Views\Offers\Delete.cshtml" />
+    <Content Include="Views\Offers\Details.cshtml" />
+    <Content Include="Views\Offers\Edit.cshtml" />
+    <Content Include="Views\Offers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
