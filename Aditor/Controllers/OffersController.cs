@@ -31,6 +31,11 @@ namespace Aditor.Controllers
             }
 
             Offer offer = db.Offers.Find(id);
+            if (offer.Type == OfferType.Banner)
+            {
+                offer = db.Banners.Find(id);
+            }
+
             if (offer == null)
             {
                 return HttpNotFound();
@@ -48,33 +53,52 @@ namespace Aditor.Controllers
         // POST: Offers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
+        /// <summary>
+        /// The create.
+        /// </summary>
+        /// <param name="offer">
+        /// The offer.
+        /// </param>
+        /// <param name="uploadBanner">
+        /// The upload banner.
+        /// </param>
+        /// <returns>
+        /// The <see cref="ActionResult"/>.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offer offer, HttpPostedFileBase uploadBanner)
+        public ActionResult Create(Offer offer, HttpPostedFileBase uploadBanner)
         {
-            if (ModelState.IsValid)
+            if (this.ModelState.IsValid)
             {
-                if (uploadBanner != null && uploadBanner.ContentLength > 0)
+                if (offer.Type == OfferType.Banner)
                 {
-                    var newBanner = new Banner
+                    if (uploadBanner != null && uploadBanner.ContentLength > 0)
                     {
-                        FileName = System.IO.Path.GetFileName(uploadBanner.FileName),
-                        ContentType = uploadBanner.ContentType
-                    };
-                    using (var reader = new System.IO.BinaryReader(uploadBanner.InputStream))
-                    {
-                        newBanner.Content = reader.ReadBytes(uploadBanner.ContentLength);
-                    }
+                        var newBanner = new Banner(offer)
+                        {
+                            FileName = System.IO.Path.GetFileName(uploadBanner.FileName),
+                            ContentType = uploadBanner.ContentType
+                        };
 
-                    //offers.Banner = newBanner;
+                        using (var reader = new System.IO.BinaryReader(uploadBanner.InputStream))
+                        {
+                            newBanner.Content = reader.ReadBytes(uploadBanner.ContentLength);
+                        }
+
+                        this.db.Banners.Add(newBanner);
+                        this.db.SaveChanges();
+                        return this.RedirectToAction("Index");
+                    }
                 }
 
-                db.Offers.Add(offer);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                this.db.Offers.Add(offer);
+                this.db.SaveChanges();
+                return this.RedirectToAction("Index");
             }
 
-            return View(offer);
+            return this.View(offer);
         }
 
         // GET: Offers/Edit/5
