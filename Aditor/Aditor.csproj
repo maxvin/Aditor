@@ -184,6 +184,14 @@
   <ItemGroup>
     <Compile Include="Controllers\BannersController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
+    <Compile Include="Migrations\201508110759493_initial.cs" />
+    <Compile Include="Migrations\201508110759493_initial.Designer.cs">
+      <DependentUpon>201508110759493_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508110801537_AddOfferTypesAndBanners.cs" />
+    <Compile Include="Migrations\201508110801537_AddOfferTypesAndBanners.Designer.cs">
+      <DependentUpon>201508110801537_AddOfferTypesAndBanners.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\OfferType.cs" />
@@ -299,6 +307,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508110759493_initial.resx">
+      <DependentUpon>201508110759493_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508110801537_AddOfferTypesAndBanners.resx">
+      <DependentUpon>201508110801537_AddOfferTypesAndBanners.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

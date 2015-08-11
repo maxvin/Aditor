@@ -20,7 +20,9 @@ namespace Aditor
         [Key]
         public int offerID { get; set; }
 
-        public Advertiser advertiser { get; set; }
+        //public Advertiser advertiser { get; set; }
+
+        public int? advertiserId { get; set; }
 
         [StringLength(500)]
         public string lp { get; set; }
