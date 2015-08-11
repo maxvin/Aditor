@@ -29,7 +29,6 @@ namespace Aditor
         public virtual DbSet<postbacks> postbacks { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<Campaignes> Campaignes { get; set; }
-        public virtual DbSet<CampaignRuleMapping> CampaignRuleMapping { get; set; }
         public virtual DbSet<Countries> Countries { get; set; }
         public virtual DbSet<Rules> Rules { get; set; }
         public virtual DbSet<Banner> Banners { get; set; }
@@ -67,6 +66,17 @@ namespace Aditor
             modelBuilder.Entity<Rules>()
                 .Property(e => e.Offers)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Campaignes>()
+                .HasMany(c => c.Rules)
+                .WithMany()
+                .Map(
+                    m =>
+                    {
+                        m.ToTable("CampaignRuleMapping");
+                        m.MapLeftKey("CampaignId");
+                        m.MapRightKey("RuleId");
+                    });
         }
     }
 }

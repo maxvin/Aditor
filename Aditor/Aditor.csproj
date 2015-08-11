@@ -184,8 +184,10 @@
   <ItemGroup>
     <Compile Include="Controllers\AdvertisersController.cs" />
     <Compile Include="Controllers\BannersController.cs" />
+    <Compile Include="Controllers\CampaignsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
+    <Compile Include="Controllers\RulesController.cs" />
     <Compile Include="Migrations\201508110759493_initial.cs" />
     <Compile Include="Migrations\201508110759493_initial.Designer.cs">
       <DependentUpon>201508110759493_initial.cs</DependentUpon>
@@ -205,6 +207,10 @@
     <Compile Include="Migrations\201508111114003_fixOfferForms.cs" />
     <Compile Include="Migrations\201508111114003_fixOfferForms.Designer.cs">
       <DependentUpon>201508111114003_fixOfferForms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508111238383_addCampaignRulesMapping.cs" />
+    <Compile Include="Migrations\201508111238383_addCampaignRulesMapping.Designer.cs">
+      <DependentUpon>201508111238383_addCampaignRulesMapping.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Banner.cs" />
@@ -257,6 +263,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\Default Settings %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -315,6 +325,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Campaigns\Create.cshtml" />
+    <Content Include="Views\Campaigns\Delete.cshtml" />
+    <Content Include="Views\Campaigns\Details.cshtml" />
+    <Content Include="Views\Campaigns\Edit.cshtml" />
+    <Content Include="Views\Campaigns\Index.cshtml" />
+    <Content Include="Views\Rules\Create.cshtml" />
+    <Content Include="Views\Rules\Delete.cshtml" />
+    <Content Include="Views\Rules\Details.cshtml" />
+    <Content Include="Views\Rules\Edit.cshtml" />
+    <Content Include="Views\Rules\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -342,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508111114003_fixOfferForms.resx">
       <DependentUpon>201508111114003_fixOfferForms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508111238383_addCampaignRulesMapping.resx">
+      <DependentUpon>201508111238383_addCampaignRulesMapping.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -12,15 +12,15 @@ namespace Aditor
         [Column(Order = 0)]
         public int CampaignId { get; set; }
 
-        [Key]
         [Column(Order = 1)]
         [StringLength(200)]
         public string CampaignName { get; set; }
 
         public string CampaignDescription { get; set; }
 
-        [Key]
         [Column(Order = 2)]
         public bool CampaignIsDefault { get; set; }
+
+        public ICollection<Rules> Rules { get; set; }
     }
 }
