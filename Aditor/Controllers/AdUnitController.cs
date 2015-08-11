@@ -16,11 +16,11 @@ namespace Aditor.Controllers
 
         public AdUnitInfo Get(string applicationId, int adType)
         {
-            return new BannerInfo()
+            return new BannerInfo
                    {
                        AdUnitType = adType,
-                       AdUrl = "http://google.com.ua",
-                       BannerUrl = "http://google.com.ua"
+                       AdUrl = "https://www.google.com.ua",
+                       BannerUrl = this.Url.Link("Default", new { Controller = "Banners", Action = "Index", id = 1 })
                    };
         }
     }

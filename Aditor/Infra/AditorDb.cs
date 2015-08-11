@@ -33,6 +33,8 @@ namespace Aditor
         public virtual DbSet<Rules> Rules { get; set; }
         public virtual DbSet<Banner> Banners { get; set; }
 
+        public virtual DbSet<MobileApplication> MobileApplications { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Click>()
