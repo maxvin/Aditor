@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201508110815569_changeLinkOfferAdv.Designer.cs">
       <DependentUpon>201508110815569_changeLinkOfferAdv.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508111037449_removeFileId.cs" />
+    <Compile Include="Migrations\201508111037449_removeFileId.Designer.cs">
+      <DependentUpon>201508111037449_removeFileId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\OfferType.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508110815569_changeLinkOfferAdv.resx">
       <DependentUpon>201508110815569_changeLinkOfferAdv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508111037449_removeFileId.resx">
+      <DependentUpon>201508111037449_removeFileId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
