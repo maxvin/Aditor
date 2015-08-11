@@ -1,0 +1,66 @@
+﻿@model Aditor.Advertiser
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Advertiser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.advertisername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertisername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiseremail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiseremail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiserURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiserURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiserPostURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiserPostURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiserPostBackUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiserPostBackUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiserpassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiserpassword)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.advertiserid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

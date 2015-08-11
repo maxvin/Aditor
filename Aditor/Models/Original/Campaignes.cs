@@ -7,7 +7,7 @@ namespace Aditor
     using System.Data.Entity.Spatial;
 
     public partial class Campaignes
-    {
+    { 
         [Key]
         [Column(Order = 0)]
         public int CampaignId { get; set; }

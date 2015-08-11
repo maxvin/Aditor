@@ -1,0 +1,72 @@
+﻿@model Aditor.Advertiser
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Advertiser</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.advertisername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertisername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiseremail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiseremail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiserURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiserURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiserPostURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiserPostURL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiserPostBackUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiserPostBackUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.advertiserpassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.advertiserpassword)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

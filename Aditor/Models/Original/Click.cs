@@ -6,7 +6,7 @@ namespace Aditor
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Clicks
+    public partial class Click
     {
         [StringLength(50)]
         public string ipaddress { get; set; }

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Aditor.Advertiser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.advertisername)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.advertiseremail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.advertiserURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.advertiserPostURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.advertiserPostBackUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.advertiserpassword)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertisername)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertiseremail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertiserURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertiserPostURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertiserPostBackUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.advertiserpassword)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.advertiserid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.advertiserid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.advertiserid })
+        </td>
+    </tr>
+}
+
+</table>

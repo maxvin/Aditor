@@ -10,7 +10,7 @@ namespace Aditor.Models
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Banners")]
-    public class Banner : Offers
+    public class Banner : Offer
     {
         [Key]
         public int FileId { get; set; }

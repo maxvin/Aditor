@@ -1,4 +1,4 @@
-﻿@model Aditor.Offers
+﻿@model Aditor.Offer
 
 @{
     ViewBag.Title = "Delete";
@@ -12,11 +12,11 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.advertiserID)
+            @Html.DisplayNameFor(model => model.advertiser.advertisername)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.advertiserID)
+            @Html.DisplayFor(model => model.advertiser.advertisername)
         </dd>
 
         <dt>

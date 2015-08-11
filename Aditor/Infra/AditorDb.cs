@@ -16,18 +16,18 @@ namespace Aditor
         }
 
         public virtual DbSet<Advertiser> Advertisers { get; set; }
-        public virtual DbSet<Affiliates> Affiliates { get; set; }
-        public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Clicks> Clicks { get; set; }
+        public virtual DbSet<Affiliate> Affiliates { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Click> Clicks { get; set; }
         public virtual DbSet<ClicksSummary> ClicksSummary { get; set; }
-        public virtual DbSet<Conversions> Conversions { get; set; }
+        public virtual DbSet<Conversion> Conversions { get; set; }
         public virtual DbSet<CountriesDB> CountriesDB { get; set; }
         public virtual DbSet<Deals> Deals { get; set; }
         public virtual DbSet<IPCountry> IPCountry { get; set; }
         public virtual DbSet<leads> leads { get; set; }
-        public virtual DbSet<Offers> Offers { get; set; }
+        public virtual DbSet<Offer> Offers { get; set; }
         public virtual DbSet<postbacks> postbacks { get; set; }
-        public virtual DbSet<Tags> Tags { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<Campaignes> Campaignes { get; set; }
         public virtual DbSet<CampaignRuleMapping> CampaignRuleMapping { get; set; }
         public virtual DbSet<Countries> Countries { get; set; }
@@ -36,12 +36,12 @@ namespace Aditor
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Clicks>()
+            modelBuilder.Entity<Click>()
                 .Property(e => e.country)
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Conversions>()
+            modelBuilder.Entity<Conversion>()
                 .Property(e => e.conversion_Country)
                 .IsFixedLength()
                 .IsUnicode(false);
@@ -56,11 +56,11 @@ namespace Aditor
                 .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Offers>()
+            modelBuilder.Entity<Offer>()
                 .Property(e => e.revenuevalue)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<Offers>()
+            modelBuilder.Entity<Offer>()
                 .Property(e => e.payoutvalue)
                 .HasPrecision(18, 0);
 

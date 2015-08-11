@@ -6,14 +6,12 @@ namespace Aditor
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Tags
+    public partial class Category
     {
         [Key]
-        public int tagid { get; set; }
-
-        public int? affiliateid { get; set; }
+        public int categoryID { get; set; }
 
         [StringLength(50)]
-        public string tagname { get; set; }
+        public string categoryName { get; set; }
     }
 }

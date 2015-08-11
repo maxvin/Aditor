@@ -15,14 +15,12 @@ namespace Aditor
     /// <summary>
     /// The offers.
     /// </summary>
-    public partial class Offers
+    public partial class Offer
     {
         [Key]
         public int offerID { get; set; }
 
-        //public Advertiser advertiser { get; set; }
-
-        public int? advertiserId { get; set; }
+        public virtual Advertiser advertiser { get; set; }
 
         [StringLength(500)]
         public string lp { get; set; }

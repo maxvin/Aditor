@@ -30,13 +30,13 @@ namespace Aditor.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Offers offers = db.Offers.Find(id);
-            if (offers == null)
+            Offer offer = db.Offers.Find(id);
+            if (offer == null)
             {
                 return HttpNotFound();
             }
 
-            return View(offers);
+            return View(offer);
         }
 
         // GET: Offers/Create
@@ -50,7 +50,7 @@ namespace Aditor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offers offers, HttpPostedFileBase uploadBanner)
+        public ActionResult Create([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offer offer, HttpPostedFileBase uploadBanner)
         {
             if (ModelState.IsValid)
             {
@@ -69,12 +69,12 @@ namespace Aditor.Controllers
                     //offers.Banner = newBanner;
                 }
 
-                db.Offers.Add(offers);
+                db.Offers.Add(offer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(offers);
+            return View(offer);
         }
 
         // GET: Offers/Edit/5
@@ -84,12 +84,12 @@ namespace Aditor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Offers offers = db.Offers.Find(new object() );
-            if (offers == null)
+            Offer offer = db.Offers.Find(id);
+            if (offer == null)
             {
                 return HttpNotFound();
             }
-            return View(offers);
+            return View(offer);
         }
 
         // POST: Offers/Edit/5
@@ -97,7 +97,7 @@ namespace Aditor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offers offers, HttpPostedFileBase uploadBanner)
+        public ActionResult Edit([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offer offer, HttpPostedFileBase uploadBanner)
         {
             if (ModelState.IsValid)
             {
@@ -122,12 +122,12 @@ namespace Aditor.Controllers
 
                 //db.Entry(offers).State = EntityState.Modified;
                 
-                db.Offers.Add(offers);
+                db.Offers.Add(offer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(offers);
+            return View(offer);
         }
 
         // GET: Offers/Delete/5
@@ -137,12 +137,12 @@ namespace Aditor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Offers offers = db.Offers.Find(id);
-            if (offers == null)
+            Offer offer = db.Offers.Find(id);
+            if (offer == null)
             {
                 return HttpNotFound();
             }
-            return View(offers);
+            return View(offer);
         }
 
         // POST: Offers/Delete/5
@@ -150,8 +150,8 @@ namespace Aditor.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Offers offers = db.Offers.Find(id);
-            db.Offers.Remove(offers);
+            Offer offer = db.Offers.Find(id);
+            db.Offers.Remove(offer);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

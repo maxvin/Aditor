@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Aditor.Offers>
+﻿@model IEnumerable<Aditor.Offer>
 
 @{
     ViewBag.Title = "Index";
@@ -6,13 +6,13 @@
 
 <h2>Index</h2>
 
-<p>
+<p>|
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.advertiserID)
+            @Html.DisplayNameFor(model => model.advertiser.advertisername)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.lp)
@@ -47,7 +47,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.advertiserId)
+            @Html.DisplayFor(modelItem => item.advertiser.advertisername)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.lp)
