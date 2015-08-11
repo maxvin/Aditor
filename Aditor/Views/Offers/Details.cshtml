@@ -89,6 +89,15 @@
         <dd>
             @Html.DisplayFor(model => model.offername)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Banner)
+        </dt>
+        <dd>
+            @if (Model.Banner != null)
+            {
+                <img src="~/Banners?id=@Model.Banner.FileId" alt="Banner" style="width: 200px;"/>
+            }
+        </dd>
 
     </dl>
 </div>
