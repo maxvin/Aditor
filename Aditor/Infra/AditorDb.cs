@@ -12,7 +12,7 @@ namespace Aditor
         {
         }
 
-        public virtual DbSet<Advertisers> Advertisers { get; set; }
+        public virtual DbSet<Advertiser> Advertisers { get; set; }
         public virtual DbSet<Affiliates> Affiliates { get; set; }
         public virtual DbSet<Categories> Categories { get; set; }
         public virtual DbSet<Clicks> Clicks { get; set; }

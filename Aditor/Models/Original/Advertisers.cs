@@ -6,7 +6,7 @@ namespace Aditor
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Advertisers
+    public partial class Advertiser
     {
         [Key]
         public int advertiserid { get; set; }

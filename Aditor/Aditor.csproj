@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\OffersController.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Original\Advertisers.cs" />
     <Compile Include="Models\Original\Affiliates.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -283,6 +284,7 @@
     <Content Include="Views\Offers\Details.cshtml" />
     <Content Include="Views\Offers\Edit.cshtml" />
     <Content Include="Views\Offers\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\YesNo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

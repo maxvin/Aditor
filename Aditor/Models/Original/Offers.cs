@@ -11,7 +11,7 @@ namespace Aditor
         [Key]
         public int offerID { get; set; }
 
-        public int? advertiserID { get; set; }
+        public Advertiser advertiser { get; set; }
 
         [StringLength(500)]
         public string lp { get; set; }
@@ -26,6 +26,7 @@ namespace Aditor
 
         public decimal? payoutvalue { get; set; }
 
+        [UIHint("YesNo")]
         public bool? active { get; set; }
 
         [StringLength(250)]
