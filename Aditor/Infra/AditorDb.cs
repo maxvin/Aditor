@@ -22,7 +22,7 @@ namespace Aditor
         public virtual DbSet<ClicksSummary> ClicksSummary { get; set; }
         public virtual DbSet<Conversion> Conversions { get; set; }
         public virtual DbSet<CountriesDB> CountriesDB { get; set; }
-        public virtual DbSet<Deals> Deals { get; set; }
+        public virtual DbSet<Deal> Deals { get; set; }
         public virtual DbSet<IPCountry> IPCountry { get; set; }
         public virtual DbSet<leads> leads { get; set; }
         public virtual DbSet<Offer> Offers { get; set; }

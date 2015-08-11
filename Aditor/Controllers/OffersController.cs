@@ -11,6 +11,7 @@ using Aditor;
 namespace Aditor.Controllers
 {
     using Aditor.Models;
+    using Aditor.Models.ViewModels;
 
     public class OffersController : Controller
     {
@@ -47,7 +48,13 @@ namespace Aditor.Controllers
         // GET: Offers/Create
         public ActionResult Create()
         {
-            return View();
+            var offerVM = new OfferViewModel();
+
+            offerVM.Advertisers = db.Advertisers.ToList();
+            offerVM.Categories = db.Categories.ToList();
+            offerVM.DealsList = db.Deals.ToList();
+
+            return View(offerVM);
         }
 
         // POST: Offers/Create
@@ -68,10 +75,13 @@ namespace Aditor.Controllers
         /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Offer offer, HttpPostedFileBase uploadBanner)
+        public ActionResult Create(OfferViewModel offerVM, HttpPostedFileBase uploadBanner)
         {
             if (this.ModelState.IsValid)
             {
+
+                Offer offer = GetOffer(offerVM);
+
                 if (offer.Type == OfferType.Banner)
                 {
                     if (uploadBanner != null && uploadBanner.ContentLength > 0)
@@ -98,7 +108,25 @@ namespace Aditor.Controllers
                 return this.RedirectToAction("Index");
             }
 
-            return this.View(offer);
+            return this.View(offerVM);
+        }
+
+        private Offer GetOffer(OfferViewModel offerVm)
+        {
+            var res = new Offer();
+            res.Type = offerVm.Type;
+            res.active = offerVm.active;
+            res.advertiser = db.Advertisers.Find(offerVm.advertiserId);
+            res.category = db.Categories.Find(offerVm.categoryId);
+            res.lp = offerVm.lp;
+            res.offerID = offerVm.offerID;
+            res.offername = offerVm.offername;
+            res.payouttype = db.Deals.Find(offerVm.payouttypeId);
+            res.payoutvalue = offerVm.payoutvalue;
+            res.revenuetype = db.Deals.Find(offerVm.revenuetypeId);
+            res.revenuevalue = offerVm.revenuevalue;
+            res.staticvalues = offerVm.staticvalues;
+            return res;
         }
 
         // GET: Offers/Edit/5
@@ -113,7 +141,12 @@ namespace Aditor.Controllers
             {
                 return HttpNotFound();
             }
-            return View(offer);
+            var offerVM = new OfferViewModel(offer);
+            offerVM.Advertisers = db.Advertisers.ToList();
+            offerVM.Categories = db.Categories.ToList();
+            offerVM.DealsList = db.Deals.ToList();
+
+            return View(offerVM);
         }
 
         // POST: Offers/Edit/5
@@ -146,8 +179,8 @@ namespace Aditor.Controllers
 
                 //db.Entry(offers).State = EntityState.Modified;
                 
-                db.Offers.Add(offer);
-                db.SaveChanges();
+                //db.Offers.Add(offer);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 

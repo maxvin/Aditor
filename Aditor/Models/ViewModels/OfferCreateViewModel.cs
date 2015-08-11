@@ -9,19 +9,47 @@ namespace Aditor.Models.ViewModels
     using System.ComponentModel.DataAnnotations;
     using System.Web.Mvc;
 
-    public class OfferCreateViewModel
+    public class OfferViewModel
     {
+
+        public OfferViewModel()
+        {
+            active = true;
+        }
+
+        public OfferViewModel(Offer offer)
+        {
+            this.Type = offer.Type;
+            this.active = offer.active;
+            this.advertiserId = offer.advertiser.advertiserid;
+            this.categoryId = offer.category.categoryID;
+            this.lp = offer.lp;
+            this.offerID = offer.offerID;
+            this.offername = offer.offername;
+            this.payouttypeId = offer.payouttype.dealID;
+            this.payoutvalue = offer.payoutvalue;
+            this.revenuetypeId = offer.revenuetype.dealID;
+            this.revenuevalue = offer.revenuevalue;
+            this.staticvalues = offer.staticvalues;
+        }
+
+        public int offerID { get; set; }
+
+        [Display(Name = "Advertiser")]
         public int advertiserId { get; set; }
 
         [StringLength(500)]
         public string lp { get; set; }
 
+        [Display(Name = "Category")]
         public int categoryId { get; set; }
 
+        [Display(Name = "Revenue type")]
         public int revenuetypeId { get; set; }
 
         public decimal? revenuevalue { get; set; }
 
+        [Display(Name = "Payout type")]
         public int payouttypeId { get; set; }
 
         public decimal? payoutvalue { get; set; }
@@ -33,6 +61,7 @@ namespace Aditor.Models.ViewModels
         public string staticvalues { get; set; }
 
         [StringLength(50)]
+        [Required]
         public string offername { get; set; }
 
         public OfferType Type { get; set; }
@@ -60,7 +89,7 @@ namespace Aditor.Models.ViewModels
             }
         }
 
-        public List<Deals> DealsList;
+        public List<Deal> DealsList;
 
         public IEnumerable<SelectListItem> RevenueTypesList
         {
@@ -79,5 +108,6 @@ namespace Aditor.Models.ViewModels
         }
 
 #endregion
+
     }
 }

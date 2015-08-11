@@ -25,18 +25,18 @@ namespace Aditor
         [StringLength(500)]
         public string lp { get; set; }
 
-        public int? category { get; set; }
+        public virtual Category category { get; set; }
 
-        public int? revenuetype { get; set; }
+        public virtual Deal revenuetype { get; set; }
 
         public decimal? revenuevalue { get; set; }
 
-        public int? payouttype { get; set; }
+        public virtual Deal payouttype { get; set; }
 
         public decimal? payoutvalue { get; set; }
 
         [UIHint("YesNo")]
-        public bool? active { get; set; }
+        public bool active { get; set; }
 
         [StringLength(250)]
         public string staticvalues { get; set; }

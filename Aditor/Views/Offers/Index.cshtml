@@ -12,7 +12,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.advertiser.advertisername)
+            @Html.DisplayNameFor(model => model.advertiser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.offername)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.lp)
@@ -38,9 +41,6 @@
         <th>
             @Html.DisplayNameFor(model => model.staticvalues)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.offername)
-        </th>
         <th></th>
     </tr>
 
@@ -50,19 +50,22 @@
             @Html.DisplayFor(modelItem => item.advertiser.advertisername)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.offername)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.lp)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.category)
+            @Html.DisplayFor(modelItem => item.category.categoryName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.revenuetype)
+            @Html.DisplayFor(modelItem => item.revenuetype.DealName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.revenuevalue)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.payouttype)
+            @Html.DisplayFor(modelItem => item.payouttype.DealName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.payoutvalue)
@@ -72,9 +75,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.staticvalues)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.offername)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.offerID }) |

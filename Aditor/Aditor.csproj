@@ -202,6 +202,10 @@
     <Compile Include="Migrations\201508111037449_removeFileId.Designer.cs">
       <DependentUpon>201508111037449_removeFileId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508111114003_fixOfferForms.cs" />
+    <Compile Include="Migrations\201508111114003_fixOfferForms.Designer.cs">
+      <DependentUpon>201508111114003_fixOfferForms.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Banner.cs" />
     <Compile Include="Models\OfferType.cs" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508111037449_removeFileId.resx">
       <DependentUpon>201508111037449_removeFileId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508111114003_fixOfferForms.resx">
+      <DependentUpon>201508111114003_fixOfferForms.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
