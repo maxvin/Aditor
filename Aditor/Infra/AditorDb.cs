@@ -5,11 +5,14 @@ namespace Aditor
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
+    using Aditor.Models;
+
     public partial class AditorDb : DbContext
     {
         public AditorDb()
             : base("name=kozak")
         {
+            //Database.SetInitializer<AditorDb>(null);
         }
 
         public virtual DbSet<Advertiser> Advertisers { get; set; }
@@ -29,6 +32,7 @@ namespace Aditor
         public virtual DbSet<CampaignRuleMapping> CampaignRuleMapping { get; set; }
         public virtual DbSet<Countries> Countries { get; set; }
         public virtual DbSet<Rules> Rules { get; set; }
+        public virtual DbSet<Banner> Banners { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

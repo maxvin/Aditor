@@ -182,8 +182,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BannersController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Banner.cs" />
+    <Compile Include="Models\OfferType.cs" />
     <Compile Include="Models\Original\Advertisers.cs" />
     <Compile Include="Models\Original\Affiliates.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -288,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Banners\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

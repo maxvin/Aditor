@@ -1,11 +1,20 @@
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="Offers.cs" company="">
+//   N
+// </copyright>
+// <summary>
+//   The offers.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+
 namespace Aditor
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+    using Aditor.Models;
 
+    /// <summary>
+    /// The offers.
+    /// </summary>
     public partial class Offers
     {
         [Key]
@@ -34,5 +43,7 @@ namespace Aditor
 
         [StringLength(50)]
         public string offername { get; set; }
+
+        public OfferType Type { get; set; }
     }
 }

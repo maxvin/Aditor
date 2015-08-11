@@ -10,6 +10,8 @@ using Aditor;
 
 namespace Aditor.Controllers
 {
+    using Aditor.Models;
+
     public class OffersController : Controller
     {
         private AditorDb db = new AditorDb();
@@ -27,11 +29,13 @@ namespace Aditor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Offers offers = db.Offers.Find(id);
             if (offers == null)
             {
                 return HttpNotFound();
             }
+
             return View(offers);
         }
 
@@ -46,10 +50,25 @@ namespace Aditor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offers offers)
+        public ActionResult Create([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offers offers, HttpPostedFileBase uploadBanner)
         {
             if (ModelState.IsValid)
             {
+                if (uploadBanner != null && uploadBanner.ContentLength > 0)
+                {
+                    var newBanner = new Banner
+                    {
+                        FileName = System.IO.Path.GetFileName(uploadBanner.FileName),
+                        ContentType = uploadBanner.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(uploadBanner.InputStream))
+                    {
+                        newBanner.Content = reader.ReadBytes(uploadBanner.ContentLength);
+                    }
+
+                    //offers.Banner = newBanner;
+                }
+
                 db.Offers.Add(offers);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -65,7 +84,7 @@ namespace Aditor.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Offers offers = db.Offers.Find(id);
+            Offers offers = db.Offers.Find(new object() );
             if (offers == null)
             {
                 return HttpNotFound();
@@ -78,14 +97,36 @@ namespace Aditor.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offers offers)
+        public ActionResult Edit([Bind(Include = "offerID,advertiserID,lp,category,revenuetype,revenuevalue,payouttype,payoutvalue,active,staticvalues,offername")] Offers offers, HttpPostedFileBase uploadBanner)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(offers).State = EntityState.Modified;
+                //if (uploadBanner != null && uploadBanner.ContentLength > 0)
+                //{
+                //    if (offers.Banner != null)
+                //    {
+                //        db.Banners.Remove(offers.Banner);
+                //    }
+                //    var newBanner = new Banner
+                //    {
+                //        FileName = System.IO.Path.GetFileName(uploadBanner.FileName),
+                //        ContentType = uploadBanner.ContentType
+                //    };
+                //    using (var reader = new System.IO.BinaryReader(uploadBanner.InputStream))
+                //    {
+                //        newBanner.Content = reader.ReadBytes(uploadBanner.ContentLength);
+                //    }
+
+                //    offers.Banner = newBanner;
+                //}
+
+                //db.Entry(offers).State = EntityState.Modified;
+                
+                db.Offers.Add(offers);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(offers);
         }
 
