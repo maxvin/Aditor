@@ -186,6 +186,7 @@
     <Compile Include="Controllers\BannersController.cs" />
     <Compile Include="Controllers\CampaignsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MobileApplicationsController.cs" />
     <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\RulesController.cs" />
     <Compile Include="Migrations\201508110759493_initial.cs" />
@@ -212,8 +213,13 @@
     <Compile Include="Migrations\201508111238383_addCampaignRulesMapping.Designer.cs">
       <DependentUpon>201508111238383_addCampaignRulesMapping.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508111614157_addApplications.cs" />
+    <Compile Include="Migrations\201508111614157_addApplications.Designer.cs">
+      <DependentUpon>201508111614157_addApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Banner.cs" />
+    <Compile Include="Models\Original\MobileApplication.cs" />
     <Compile Include="Models\OfferType.cs" />
     <Compile Include="Models\Original\Advertiser.cs" />
     <Compile Include="Models\Original\Affiliate.cs" />
@@ -247,6 +253,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Original\Offer.cs" />
+    <Compile Include="Models\ViewModels\MobileApplicationViewModel.cs" />
     <Compile Include="Models\ViewModels\OfferCreateViewModel.cs" />
     <Compile Include="postbacks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -336,6 +343,11 @@
     <Content Include="Views\Rules\Details.cshtml" />
     <Content Include="Views\Rules\Edit.cshtml" />
     <Content Include="Views\Rules\Index.cshtml" />
+    <Content Include="Views\MobileApplications\Create.cshtml" />
+    <Content Include="Views\MobileApplications\Delete.cshtml" />
+    <Content Include="Views\MobileApplications\Details.cshtml" />
+    <Content Include="Views\MobileApplications\Edit.cshtml" />
+    <Content Include="Views\MobileApplications\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -366,6 +378,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508111238383_addCampaignRulesMapping.resx">
       <DependentUpon>201508111238383_addCampaignRulesMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508111614157_addApplications.resx">
+      <DependentUpon>201508111614157_addApplications.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

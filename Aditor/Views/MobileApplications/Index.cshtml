@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Aditor.Models.MobileApplication>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Owner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PackageName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdCampaign)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner.affiliatename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PackageName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdCampaign.CampaignName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PackageName }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PackageName }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PackageName })
+        </td>
+    </tr>
+}
+
+</table>
